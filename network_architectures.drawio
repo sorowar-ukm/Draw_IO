@@ -1,297 +1,300 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<mxGraphModel dx="1422" dy="762" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="1169" math="0" shadow="0">
-
-  <!-- ============================================================ -->
-  <!-- PAGE 1: Net0 — Classical CNN                                  -->
-  <!-- ============================================================ -->
-  <root>
-    <mxCell id="0"/>
-    <mxCell id="1" parent="0"/>
-
-    <!-- PAGE LABEL -->
-    <mxCell id="p0_title" value="Net0 — Classical CNN (Binary Image Classification)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="300" y="20" width="600" height="40" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_params" value="Total params: 216,690 | Framework: PyTorch | Input: 1×128×128 | LR tested: 0.0001, 0.001, 0.01" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" vertex="1" parent="1">
-      <mxGeometry x="250" y="55" width="700" height="25" as="geometry"/>
-    </mxCell>
-
-    <!-- INPUT -->
-    <mxCell id="p0_input" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;1 × 128 × 128" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="80" y="120" width="130" height="60" as="geometry"/>
-    </mxCell>
-
-    <!-- CONV BLOCK 1 -->
-    <mxCell id="p0_conv1" value="&lt;b&gt;Conv2d-1&lt;/b&gt;&lt;br&gt;in=1, out=2, kernel=5&lt;br&gt;Params: 52" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="280" y="100" width="160" height="70" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_pool1" value="&lt;b&gt;MaxPool2d&lt;/b&gt;&lt;br&gt;kernel=2, stride=2&lt;br&gt;Output: 2 × 62 × 62" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="280" y="190" width="160" height="70" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_relu1" value="ReLU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="330" y="280" width="60" height="35" as="geometry"/>
-    </mxCell>
-
-    <!-- CONV BLOCK 2 -->
-    <mxCell id="p0_conv2" value="&lt;b&gt;Conv2d-2&lt;/b&gt;&lt;br&gt;in=2, out=4, kernel=5&lt;br&gt;Params: 204" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="520" y="100" width="160" height="70" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_pool2" value="&lt;b&gt;MaxPool2d&lt;/b&gt;&lt;br&gt;kernel=2, stride=2&lt;br&gt;Output: 4 × 29 × 29" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="520" y="190" width="160" height="70" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_relu2" value="ReLU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="570" y="280" width="60" height="35" as="geometry"/>
-    </mxCell>
-
-    <!-- DROPOUT -->
-    <mxCell id="p0_dropout" value="&lt;b&gt;Dropout2D&lt;/b&gt;&lt;br&gt;p = 0.25" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="760" y="190" width="130" height="60" as="geometry"/>
-    </mxCell>
-
-    <!-- FLATTEN -->
-    <mxCell id="p0_flatten" value="&lt;b&gt;Flatten&lt;/b&gt;&lt;br&gt;4 × 29 × 29 = 3,364" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="760" y="310" width="130" height="55" as="geometry"/>
-    </mxCell>
-
-    <!-- FC LAYERS -->
-    <mxCell id="p0_fc1" value="&lt;b&gt;Linear FC1&lt;/b&gt;&lt;br&gt;3,364 → 64&lt;br&gt;Params: 215,360" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="960" y="120" width="160" height="70" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_relu_fc1" value="ReLU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="1000" y="210" width="60" height="35" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_fc2" value="&lt;b&gt;Linear FC2&lt;/b&gt;&lt;br&gt;64 → 16&lt;br&gt;Params: 1,040" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="960" y="270" width="160" height="70" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_relu_fc2" value="ReLU" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="1000" y="360" width="60" height="35" as="geometry"/>
-    </mxCell>
-    <mxCell id="p0_fc3" value="&lt;b&gt;Linear FC3&lt;/b&gt;&lt;br&gt;16 → 2&lt;br&gt;Params: 34" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="960" y="420" width="160" height="70" as="geometry"/>
-    </mxCell>
-
-    <!-- OUTPUT -->
-    <mxCell id="p0_output" value="&lt;b&gt;Log-Softmax&lt;/b&gt;&lt;br&gt;Output: 2 classes&lt;br&gt;(Class 0 vs Class 1)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="960" y="530" width="160" height="70" as="geometry"/>
-    </mxCell>
-
-    <!-- ARROWS Net0 -->
-    <mxCell id="e0_1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_input" target="p0_conv1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_conv1" target="p0_pool1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_pool1" target="p0_relu1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_relu1" target="p0_conv2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_conv2" target="p0_pool2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_pool2" target="p0_relu2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_relu2" target="p0_dropout" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_dropout" target="p0_flatten" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_9" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_flatten" target="p0_fc1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_fc1" target="p0_relu_fc1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_11" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_relu_fc1" target="p0_fc2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_12" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_fc2" target="p0_relu_fc2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_13" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_relu_fc2" target="p0_fc3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e0_14" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p0_fc3" target="p0_output" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-
-    <!-- ============================================================ -->
-    <!-- PAGE 2: Net1 — QML Qiskit (on same root, offset Y by 700)   -->
-    <!-- ============================================================ -->
-
-    <mxCell id="p1_title" value="Net1 — QML Hybrid: Qiskit + PyTorch (2 Qubits)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="300" y="720" width="600" height="40" as="geometry"/>
-    </mxCell>
-    <mxCell id="p1_params" value="Total params: 13,732 | Framework: Qiskit + PyTorch | Input: 1×128×128 | Quantum: ZZFeatureMap + RealAmplitudes (reps=1)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" vertex="1" parent="1">
-      <mxGeometry x="150" y="755" width="900" height="25" as="geometry"/>
-    </mxCell>
-
-    <!-- Section label Classical -->
-    <mxCell id="p1_sec_classical" value="Classical Preprocessing" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="80" y="790" width="180" height="30" as="geometry"/>
-    </mxCell>
-
-    <!-- INPUT Net1 -->
-    <mxCell id="p1_input" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;1 × 128 × 128" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="80" y="840" width="130" height="60" as="geometry"/>
-    </mxCell>
-
-    <!-- CONV BLOCK Net1 -->
-    <mxCell id="p1_conv1" value="&lt;b&gt;Conv2d-1&lt;/b&gt;&lt;br&gt;in=1, out=2, kernel=5&lt;br&gt;+ ReLU + MaxPool2d&lt;br&gt;Output: 2 × 62 × 62" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="280" y="820" width="160" height="80" as="geometry"/>
-    </mxCell>
-    <mxCell id="p1_conv2" value="&lt;b&gt;Conv2d-2&lt;/b&gt;&lt;br&gt;in=2, out=4, kernel=5&lt;br&gt;+ ReLU + MaxPool2d&lt;br&gt;Output: 4 × 29 × 29" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="520" y="820" width="160" height="80" as="geometry"/>
-    </mxCell>
-    <mxCell id="p1_dropout" value="&lt;b&gt;Dropout2D&lt;/b&gt;&lt;br&gt;+ Flatten&lt;br&gt;→ 3,364" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="760" y="830" width="130" height="60" as="geometry"/>
-    </mxCell>
-    <mxCell id="p1_fc1" value="&lt;b&gt;FC1 Linear&lt;/b&gt;&lt;br&gt;3,364 → 4&lt;br&gt;+ ReLU&lt;br&gt;Params: 13,460" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="960" y="820" width="150" height="80" as="geometry"/>
-    </mxCell>
-    <mxCell id="p1_fc2" value="&lt;b&gt;FC2 Linear&lt;/b&gt;&lt;br&gt;4 → 2 (qubit inputs)&lt;br&gt;Params: 10" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="960" y="950" width="150" height="65" as="geometry"/>
-    </mxCell>
-
-    <!-- Quantum Section Label -->
-    <mxCell id="p1_sec_quantum" value="Quantum Circuit (Qiskit Simulator)" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="80" y="1040" width="250" height="30" as="geometry"/>
-    </mxCell>
-
-    <!-- Quantum Container -->
-    <mxCell id="p1_q_container" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f0ff;strokeColor=#9673a6;strokeWidth=2;dashed=1;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="80" y="1080" width="800" height="160" as="geometry"/>
-    </mxCell>
-
-    <!-- ZZFeatureMap -->
-    <mxCell id="p1_zzfm" value="&lt;b&gt;ZZFeatureMap&lt;/b&gt;&lt;br&gt;2 qubits&lt;br&gt;Encodes 2 classical inputs&lt;br&gt;via qubit rotations (H + Rz + CX)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="120" y="1110" width="200" height="100" as="geometry"/>
-    </mxCell>
-
-    <!-- RealAmplitudes -->
-    <mxCell id="p1_ra" value="&lt;b&gt;RealAmplitudes (reps=1)&lt;/b&gt;&lt;br&gt;2 qubits&lt;br&gt;Ry rotations (trainable)&lt;br&gt;+ CNOT entanglement&lt;br&gt;4 trainable quantum params" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="420" y="1100" width="220" height="120" as="geometry"/>
-    </mxCell>
-
-    <!-- EstimatorQNN label -->
-    <mxCell id="p1_estimator" value="EstimatorQNN (Qiskit)" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=3;" vertex="1" parent="1">
-      <mxGeometry x="90" y="1085" width="180" height="20" as="geometry"/>
-    </mxCell>
-
-    <!-- TorchConnector -->
-    <mxCell id="p1_tc" value="&lt;b&gt;TorchConnector&lt;/b&gt;&lt;br&gt;QNN output → tensor&lt;br&gt;Shape: (batch, 1) · 2 params" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="350" y="1290" width="200" height="70" as="geometry"/>
-    </mxCell>
-
-    <!-- FC3 -->
-    <mxCell id="p1_fc3" value="&lt;b&gt;FC3 Linear&lt;/b&gt;&lt;br&gt;1 → 1&lt;br&gt;Params: 2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="350" y="1410" width="200" height="60" as="geometry"/>
-    </mxCell>
-
-    <!-- Output Net1 -->
-    <mxCell id="p1_output" value="&lt;b&gt;Output&lt;/b&gt;&lt;br&gt;Concat [p, 1−p]&lt;br&gt;2-class probabilities" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="350" y="1520" width="200" height="65" as="geometry"/>
-    </mxCell>
-
-    <!-- ARROWS Net1 -->
-    <mxCell id="e1_1" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_input" target="p1_conv1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_2" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_conv1" target="p1_conv2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_3" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_conv2" target="p1_dropout" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_4" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_dropout" target="p1_fc1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_5" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_fc1" target="p1_fc2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_6" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_fc2" target="p1_zzfm" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_7" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_zzfm" target="p1_ra" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_8" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_ra" target="p1_tc" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_9" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_tc" target="p1_fc3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e1_10" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p1_fc3" target="p1_output" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-
-    <!-- ============================================================ -->
-    <!-- PAGE 3: Net2 — QML PennyLane (offset Y by 1700)             -->
-    <!-- ============================================================ -->
-
-    <mxCell id="p2_title" value="Net2 — QML Hybrid: PennyLane + PyTorch (QCCNN, 4 Qubits)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" vertex="1" parent="1">
-      <mxGeometry x="250" y="1700" width="700" height="40" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_params" value="Total params: 30,010 (Classical: 29,998 | Quantum: 12) | Framework: PennyLane + PyTorch | Device: lightning.qubit | Input: 3×128×128" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" vertex="1" parent="1">
-      <mxGeometry x="100" y="1735" width="1000" height="25" as="geometry"/>
-    </mxCell>
-
-    <!-- INPUT Net2 -->
-    <mxCell id="p2_input" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;3 × 128 × 128 (RGB)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="500" y="1770" width="150" height="60" as="geometry"/>
-    </mxCell>
-
-    <!-- Classical Feature Extractor container -->
-    <mxCell id="p2_cfe_container" value="Classical Feature Extractor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="80" y="1870" width="1000" height="180" as="geometry"/>
-    </mxCell>
-
-    <mxCell id="p2_block1" value="&lt;b&gt;Block1&lt;/b&gt;&lt;br&gt;Conv2d 3→8, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2)&lt;br&gt;→ 8×64×64" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="100" y="1910" width="160" height="110" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_block2" value="&lt;b&gt;Block2&lt;/b&gt;&lt;br&gt;Conv2d 8→16, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2) → x2&lt;br&gt;→ 16×32×32" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="320" y="1910" width="160" height="110" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_block3" value="&lt;b&gt;Block3&lt;/b&gt;&lt;br&gt;Conv2d 16→32, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2)&lt;br&gt;→ 32×16×16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="540" y="1910" width="160" height="110" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_block4" value="&lt;b&gt;Block4&lt;/b&gt;&lt;br&gt;Conv2d 32→64, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;(no pool) → x4&lt;br&gt;→ 64×16×16" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="760" y="1910" width="160" height="110" as="geometry"/>
-    </mxCell>
-
-    <!-- Arrows inside CFE -->
-    <mxCell id="e2_b12" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_block1" target="p2_block2" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_b23" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_block2" target="p2_block3" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_b34" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_block3" target="p2_block4" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-
-    <!-- Two output branches label -->
-    <mxCell id="p2_branch_label" value="Two output branches from CFE" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" vertex="1" parent="1">
-      <mxGeometry x="350" y="2060" width="300" height="25" as="geometry"/>
-    </mxCell>
-
-    <!-- Branch x2: ReduceToQubits -->
-    <mxCell id="p2_reduce" value="&lt;b&gt;ReduceToQubits&lt;/b&gt;&lt;br&gt;Conv 16→8 (1×1) + ReLU&lt;br&gt;Conv 8→4 (1×1)&lt;br&gt;+ Interpolate to Q_RES" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="100" y="2100" width="200" height="90" as="geometry"/>
-    </mxCell>
-
-    <!-- Branch x4: GlobalAvgPool -->
-    <mxCell id="p2_gap" value="&lt;b&gt;Global Avg Pool&lt;/b&gt;&lt;br&gt;torch.mean(x4, dim=(2,3))&lt;br&gt;→ 64-dim vector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="760" y="2100" width="200" height="90" as="geometry"/>
-    </mxCell>
-
-    <!-- Quantum Conv container -->
-    <mxCell id="p2_qc_container" value="QuantumConv — PennyLane (lightning.qubit, 4 qubits)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f0ff;strokeColor=#9673a6;strokeWidth=2;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
-      <mxGeometry x="80" y="2230" width="500" height="220" as="geometry"/>
-    </mxCell>
-
-    <mxCell id="p2_tanh" value="tanh activation on patch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="100" y="2270" width="180" height="45" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_ry_in" value="&lt;b&gt;RY(input)&lt;/b&gt;&lt;br&gt;Encodes patch pixel → qubit rotation&lt;br&gt;4 qubits" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="100" y="2330" width="180" height="65" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_ry_w" value="&lt;b&gt;RY(weight)&lt;/b&gt;&lt;br&gt;Trainable rotation per qubit&lt;br&gt;4 qubits × N_Q_LAYERS = 12 params" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="310" y="2330" width="240" height="65" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_cnot" value="&lt;b&gt;CNOT ring entanglement&lt;/b&gt;&lt;br&gt;q0→q1→q2→q3→q0" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="100" y="2410" width="200" height="55" as="geometry"/>
-    </mxCell>
-    <mxCell id="p2_measure" value="&lt;b&gt;Measure&lt;/b&gt;&lt;br&gt;⟨PauliZ⟩ × 4 + ⟨PauliX⟩ × 4 + ⟨PauliY⟩ × 4&lt;br&gt;= 12 expectation values per patch" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="310" y="2410" width="240" height="65" as="geometry"/>
-    </mxCell>
-
-    <!-- Mean Pool Quantum output -->
-    <mxCell id="p2_qmeanpool" value="&lt;b&gt;Mean Pool&lt;/b&gt;&lt;br&gt;Spatial mean over patches&lt;br&gt;→ 12-dim vector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="200" y="2490" width="200" height="65" as="geometry"/>
-    </mxCell>
-
-    <!-- Concatenation -->
-    <mxCell id="p2_concat" value="&lt;b&gt;Concatenate&lt;/b&gt;&lt;br&gt;[64-dim || 12-dim]&lt;br&gt;→ 76-dim vector" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="500" y="2490" width="180" height="65" as="geometry"/>
-    </mxCell>
-
-    <!-- FC Classifier -->
-    <mxCell id="p2_fc_cls" value="&lt;b&gt;FC Classifier&lt;/b&gt;&lt;br&gt;Linear 76 → 64&lt;br&gt;ReLU + Dropout(0.3)&lt;br&gt;Linear 64 → 2 (NUM_CLASSES)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="470" y="2610" width="220" height="90" as="geometry"/>
-    </mxCell>
-
-    <!-- Output Net2 -->
-    <mxCell id="p2_output" value="&lt;b&gt;Output Logits&lt;/b&gt;&lt;br&gt;2-class (binary)&lt;br&gt;Class 0 vs Class 1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
-      <mxGeometry x="490" y="2760" width="180" height="65" as="geometry"/>
-    </mxCell>
-
-    <!-- ARROWS Net2 -->
-    <mxCell id="e2_in_cfe" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_input" target="p2_block1" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_x2_reduce" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_block2" target="p2_reduce" parent="1">
-      <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="400" y="2085"/><mxPoint x="200" y="2085"/></Array></mxGeometry>
-    </mxCell>
-    <mxCell id="e2_x4_gap" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_block4" target="p2_gap" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_reduce_qc" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_reduce" target="p2_tanh" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_tanh_ry" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_tanh" target="p2_ry_in" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_ry_ryw" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_ry_in" target="p2_ry_w" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_ryw_cnot" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_ry_w" target="p2_cnot" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_cnot_meas" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_cnot" target="p2_measure" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_meas_pool" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_measure" target="p2_qmeanpool" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_pool_cat" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_qmeanpool" target="p2_concat" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_gap_cat" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_gap" target="p2_concat" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_cat_fc" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_concat" target="p2_fc_cls" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-    <mxCell id="e2_fc_out" style="edgeStyle=orthogonalEdgeStyle;" edge="1" source="p2_fc_cls" target="p2_output" parent="1"><mxGeometry relative="1" as="geometry"/></mxCell>
-
-  </root>
-</mxGraphModel>
+<mxfile host="app.diagrams.net">
+  <diagram id="Iu372MJXseVnEshazjI8" name="Page-1">
+    <mxGraphModel dx="2175" dy="1143" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p0_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="Net0 — Classical CNN (Binary Image Classification)" vertex="1">
+          <mxGeometry height="40" width="600" x="300" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_params" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" value="Total params: 216,690 | Framework: PyTorch | Input: 1×128×128 | LR tested: 0.0001, 0.001, 0.01" vertex="1">
+          <mxGeometry height="25" width="700" x="250" y="55" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;1 × 128 × 128" vertex="1">
+          <mxGeometry height="60" width="130" x="80" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_conv1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Conv2d-1&lt;/b&gt;&lt;br&gt;in=1, out=2, kernel=5&lt;br&gt;Params: 52" vertex="1">
+          <mxGeometry height="70" width="160" x="280" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_pool1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;MaxPool2d&lt;/b&gt;&lt;br&gt;kernel=2, stride=2&lt;br&gt;Output: 2 × 62 × 62" vertex="1">
+          <mxGeometry height="70" width="160" x="280" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_relu1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
+          <mxGeometry height="35" width="60" x="330" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_conv2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Conv2d-2&lt;/b&gt;&lt;br&gt;in=2, out=4, kernel=5&lt;br&gt;Params: 204" vertex="1">
+          <mxGeometry height="70" width="160" x="520" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_pool2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;MaxPool2d&lt;/b&gt;&lt;br&gt;kernel=2, stride=2&lt;br&gt;Output: 4 × 29 × 29" vertex="1">
+          <mxGeometry height="70" width="160" x="520" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_relu2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
+          <mxGeometry height="35" width="60" x="570" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_dropout" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="&lt;b&gt;Dropout2D&lt;/b&gt;&lt;br&gt;p = 0.25" vertex="1">
+          <mxGeometry height="60" width="130" x="760" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_flatten" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="&lt;b&gt;Flatten&lt;/b&gt;&lt;br&gt;4 × 29 × 29 = 3,364" vertex="1">
+          <mxGeometry height="55" width="130" x="760" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_fc1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Linear FC1&lt;/b&gt;&lt;br&gt;3,364 → 64&lt;br&gt;Params: 215,360" vertex="1">
+          <mxGeometry height="70" width="160" x="960" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_relu_fc1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
+          <mxGeometry height="35" width="60" x="1000" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_fc2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Linear FC2&lt;/b&gt;&lt;br&gt;64 → 16&lt;br&gt;Params: 1,040" vertex="1">
+          <mxGeometry height="70" width="160" x="960" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_relu_fc2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
+          <mxGeometry height="35" width="60" x="1000" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_fc3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Linear FC3&lt;/b&gt;&lt;br&gt;16 → 2&lt;br&gt;Params: 34" vertex="1">
+          <mxGeometry height="70" width="160" x="960" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="p0_output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;b&gt;Log-Softmax&lt;/b&gt;&lt;br&gt;Output: 2 classes&lt;br&gt;(Class 0 vs Class 1)" vertex="1">
+          <mxGeometry height="70" width="160" x="960" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_1" edge="1" parent="1" source="p0_input" style="edgeStyle=orthogonalEdgeStyle;" target="p0_conv1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_2" edge="1" parent="1" source="p0_conv1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_pool1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_3" edge="1" parent="1" source="p0_pool1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_relu1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_4" edge="1" parent="1" source="p0_relu1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_conv2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_5" edge="1" parent="1" source="p0_conv2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_pool2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_6" edge="1" parent="1" source="p0_pool2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_relu2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_7" edge="1" parent="1" source="p0_relu2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_dropout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_8" edge="1" parent="1" source="p0_dropout" style="edgeStyle=orthogonalEdgeStyle;" target="p0_flatten">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_9" edge="1" parent="1" source="p0_flatten" style="edgeStyle=orthogonalEdgeStyle;" target="p0_fc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_10" edge="1" parent="1" source="p0_fc1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_relu_fc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_11" edge="1" parent="1" source="p0_relu_fc1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_fc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_12" edge="1" parent="1" source="p0_fc2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_relu_fc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_13" edge="1" parent="1" source="p0_relu_fc2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_fc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e0_14" edge="1" parent="1" source="p0_fc3" style="edgeStyle=orthogonalEdgeStyle;" target="p0_output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="Net1 — QML Hybrid: Qiskit + PyTorch (2 Qubits)" vertex="1">
+          <mxGeometry height="40" width="600" x="300" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_params" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" value="Total params: 13,732 | Framework: Qiskit + PyTorch | Input: 1×128×128 | Quantum: ZZFeatureMap + RealAmplitudes (reps=1)" vertex="1">
+          <mxGeometry height="25" width="900" x="150" y="755" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_sec_classical" parent="1" style="text;html=1;strokeColor=#6c8ebf;fillColor=#dae8fc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" value="Classical Preprocessing" vertex="1">
+          <mxGeometry height="30" width="180" x="80" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;1 × 128 × 128" vertex="1">
+          <mxGeometry height="60" width="130" x="80" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_conv1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Conv2d-1&lt;/b&gt;&lt;br&gt;in=1, out=2, kernel=5&lt;br&gt;+ ReLU + MaxPool2d&lt;br&gt;Output: 2 × 62 × 62" vertex="1">
+          <mxGeometry height="80" width="160" x="280" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_conv2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Conv2d-2&lt;/b&gt;&lt;br&gt;in=2, out=4, kernel=5&lt;br&gt;+ ReLU + MaxPool2d&lt;br&gt;Output: 4 × 29 × 29" vertex="1">
+          <mxGeometry height="80" width="160" x="520" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_dropout" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="&lt;b&gt;Dropout2D&lt;/b&gt;&lt;br&gt;+ Flatten&lt;br&gt;→ 3,364" vertex="1">
+          <mxGeometry height="60" width="130" x="760" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_fc1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;FC1 Linear&lt;/b&gt;&lt;br&gt;3,364 → 4&lt;br&gt;+ ReLU&lt;br&gt;Params: 13,460" vertex="1">
+          <mxGeometry height="80" width="150" x="960" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_fc2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;FC2 Linear&lt;/b&gt;&lt;br&gt;4 → 2 (qubit inputs)&lt;br&gt;Params: 10" vertex="1">
+          <mxGeometry height="65" width="150" x="960" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_sec_quantum" parent="1" style="text;html=1;strokeColor=#9673a6;fillColor=#e1d5e7;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=1;" value="Quantum Circuit (Qiskit Simulator)" vertex="1">
+          <mxGeometry height="30" width="250" x="80" y="1040" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_q_container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f0ff;strokeColor=#9673a6;strokeWidth=2;dashed=1;fontSize=11;" value="" vertex="1">
+          <mxGeometry height="160" width="800" x="80" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_zzfm" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;ZZFeatureMap&lt;/b&gt;&lt;br&gt;2 qubits&lt;br&gt;Encodes 2 classical inputs&lt;br&gt;via qubit rotations (H + Rz + CX)" vertex="1">
+          <mxGeometry height="100" width="200" x="120" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_ra" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;RealAmplitudes (reps=1)&lt;/b&gt;&lt;br&gt;2 qubits&lt;br&gt;Ry rotations (trainable)&lt;br&gt;+ CNOT entanglement&lt;br&gt;4 trainable quantum params" vertex="1">
+          <mxGeometry height="120" width="220" x="420" y="1100" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_estimator" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=10;fontStyle=3;" value="EstimatorQNN (Qiskit)" vertex="1">
+          <mxGeometry height="20" width="180" x="90" y="1085" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_tc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;TorchConnector&lt;/b&gt;&lt;br&gt;QNN output → tensor&lt;br&gt;Shape: (batch, 1) · 2 params" vertex="1">
+          <mxGeometry height="70" width="200" x="350" y="1290" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_fc3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;FC3 Linear&lt;/b&gt;&lt;br&gt;1 → 1&lt;br&gt;Params: 2" vertex="1">
+          <mxGeometry height="60" width="200" x="350" y="1410" as="geometry" />
+        </mxCell>
+        <mxCell id="p1_output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;b&gt;Output&lt;/b&gt;&lt;br&gt;Concat [p, 1−p]&lt;br&gt;2-class probabilities" vertex="1">
+          <mxGeometry height="65" width="200" x="350" y="1520" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_1" edge="1" parent="1" source="p1_input" style="edgeStyle=orthogonalEdgeStyle;" target="p1_conv1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_2" edge="1" parent="1" source="p1_conv1" style="edgeStyle=orthogonalEdgeStyle;" target="p1_conv2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_3" edge="1" parent="1" source="p1_conv2" style="edgeStyle=orthogonalEdgeStyle;" target="p1_dropout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_4" edge="1" parent="1" source="p1_dropout" style="edgeStyle=orthogonalEdgeStyle;" target="p1_fc1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_5" edge="1" parent="1" source="p1_fc1" style="edgeStyle=orthogonalEdgeStyle;" target="p1_fc2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_6" edge="1" parent="1" source="p1_fc2" style="edgeStyle=orthogonalEdgeStyle;" target="p1_zzfm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_7" edge="1" parent="1" source="p1_zzfm" style="edgeStyle=orthogonalEdgeStyle;" target="p1_ra">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_8" edge="1" parent="1" source="p1_ra" style="edgeStyle=orthogonalEdgeStyle;" target="p1_tc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_9" edge="1" parent="1" source="p1_tc" style="edgeStyle=orthogonalEdgeStyle;" target="p1_fc3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_10" edge="1" parent="1" source="p1_fc3" style="edgeStyle=orthogonalEdgeStyle;" target="p1_output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;fontStyle=1;" value="Net2 — QML Hybrid: PennyLane + PyTorch (QCCNN, 4 Qubits)" vertex="1">
+          <mxGeometry height="40" width="700" x="250" y="1700" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_params" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" value="Total params: 30,010 (Classical: 29,998 | Quantum: 12) | Framework: PennyLane + PyTorch | Device: lightning.qubit | Input: 3×128×128" vertex="1">
+          <mxGeometry height="25" width="1000" x="100" y="1735" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;3 × 128 × 128 (RGB)" vertex="1">
+          <mxGeometry height="60" width="150" x="500" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_cfe_container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;" value="Classical Feature Extractor" vertex="1">
+          <mxGeometry height="180" width="1000" x="80" y="1870" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Block1&lt;/b&gt;&lt;br&gt;Conv2d 3→8, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2)&lt;br&gt;→ 8×64×64" vertex="1">
+          <mxGeometry height="110" width="160" x="100" y="1910" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Block2&lt;/b&gt;&lt;br&gt;Conv2d 8→16, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2) → x2&lt;br&gt;→ 16×32×32" vertex="1">
+          <mxGeometry height="110" width="160" x="320" y="1910" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Block3&lt;/b&gt;&lt;br&gt;Conv2d 16→32, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2)&lt;br&gt;→ 32×16×16" vertex="1">
+          <mxGeometry height="110" width="160" x="540" y="1910" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Block4&lt;/b&gt;&lt;br&gt;Conv2d 32→64, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;(no pool) → x4&lt;br&gt;→ 64×16×16" vertex="1">
+          <mxGeometry height="110" width="160" x="760" y="1910" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_b12" edge="1" parent="1" source="p2_block1" style="edgeStyle=orthogonalEdgeStyle;" target="p2_block2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_b23" edge="1" parent="1" source="p2_block2" style="edgeStyle=orthogonalEdgeStyle;" target="p2_block3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_b34" edge="1" parent="1" source="p2_block3" style="edgeStyle=orthogonalEdgeStyle;" target="p2_block4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_branch_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=11;fontStyle=2;" value="Two output branches from CFE" vertex="1">
+          <mxGeometry height="25" width="300" x="350" y="2060" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_reduce" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;ReduceToQubits&lt;/b&gt;&lt;br&gt;Conv 16→8 (1×1) + ReLU&lt;br&gt;Conv 8→4 (1×1)&lt;br&gt;+ Interpolate to Q_RES" vertex="1">
+          <mxGeometry height="90" width="200" x="100" y="2100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_gap" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Global Avg Pool&lt;/b&gt;&lt;br&gt;torch.mean(x4, dim=(2,3))&lt;br&gt;→ 64-dim vector" vertex="1">
+          <mxGeometry height="90" width="200" x="760" y="2100" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_qc_container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f0ff;strokeColor=#9673a6;strokeWidth=2;dashed=1;fontSize=12;fontStyle=1;verticalAlign=top;" value="QuantumConv — PennyLane (lightning.qubit, 4 qubits)" vertex="1">
+          <mxGeometry height="220" width="500" x="80" y="2230" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_tanh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="tanh activation on patch" vertex="1">
+          <mxGeometry height="45" width="180" x="100" y="2270" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ry_in" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;RY(input)&lt;/b&gt;&lt;br&gt;Encodes patch pixel → qubit rotation&lt;br&gt;4 qubits" vertex="1">
+          <mxGeometry height="65" width="180" x="100" y="2330" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ry_w" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;RY(weight)&lt;/b&gt;&lt;br&gt;Trainable rotation per qubit&lt;br&gt;4 qubits × N_Q_LAYERS = 12 params" vertex="1">
+          <mxGeometry height="65" width="240" x="310" y="2330" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_cnot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="&lt;b&gt;CNOT ring entanglement&lt;/b&gt;&lt;br&gt;q0→q1→q2→q3→q0" vertex="1">
+          <mxGeometry height="55" width="200" x="100" y="2410" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_measure" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;Measure&lt;/b&gt;&lt;br&gt;⟨PauliZ⟩ × 4 + ⟨PauliX⟩ × 4 + ⟨PauliY⟩ × 4&lt;br&gt;= 12 expectation values per patch" vertex="1">
+          <mxGeometry height="65" width="240" x="310" y="2410" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_qmeanpool" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Mean Pool&lt;/b&gt;&lt;br&gt;Spatial mean over patches&lt;br&gt;→ 12-dim vector" vertex="1">
+          <mxGeometry height="65" width="200" x="200" y="2490" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_concat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="&lt;b&gt;Concatenate&lt;/b&gt;&lt;br&gt;[64-dim || 12-dim]&lt;br&gt;→ 76-dim vector" vertex="1">
+          <mxGeometry height="65" width="180" x="500" y="2490" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_fc_cls" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;FC Classifier&lt;/b&gt;&lt;br&gt;Linear 76 → 64&lt;br&gt;ReLU + Dropout(0.3)&lt;br&gt;Linear 64 → 2 (NUM_CLASSES)" vertex="1">
+          <mxGeometry height="90" width="220" x="470" y="2610" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;b&gt;Output Logits&lt;/b&gt;&lt;br&gt;2-class (binary)&lt;br&gt;Class 0 vs Class 1" vertex="1">
+          <mxGeometry height="65" width="180" x="490" y="2760" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_in_cfe" edge="1" parent="1" source="p2_input" style="edgeStyle=orthogonalEdgeStyle;" target="p2_block1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_x2_reduce" edge="1" parent="1" source="p2_block2" style="edgeStyle=orthogonalEdgeStyle;" target="p2_reduce">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="400" y="2085" />
+              <mxPoint x="200" y="2085" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2_x4_gap" edge="1" parent="1" source="p2_block4" style="edgeStyle=orthogonalEdgeStyle;" target="p2_gap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_reduce_qc" edge="1" parent="1" source="p2_reduce" style="edgeStyle=orthogonalEdgeStyle;" target="p2_tanh">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_tanh_ry" edge="1" parent="1" source="p2_tanh" style="edgeStyle=orthogonalEdgeStyle;" target="p2_ry_in">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_ry_ryw" edge="1" parent="1" source="p2_ry_in" style="edgeStyle=orthogonalEdgeStyle;" target="p2_ry_w">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_ryw_cnot" edge="1" parent="1" source="p2_ry_w" style="edgeStyle=orthogonalEdgeStyle;" target="p2_cnot">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_cnot_meas" edge="1" parent="1" source="p2_cnot" style="edgeStyle=orthogonalEdgeStyle;" target="p2_measure">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_meas_pool" edge="1" parent="1" source="p2_measure" style="edgeStyle=orthogonalEdgeStyle;" target="p2_qmeanpool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_pool_cat" edge="1" parent="1" source="p2_qmeanpool" style="edgeStyle=orthogonalEdgeStyle;" target="p2_concat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_gap_cat" edge="1" parent="1" source="p2_gap" style="edgeStyle=orthogonalEdgeStyle;" target="p2_concat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_cat_fc" edge="1" parent="1" source="p2_concat" style="edgeStyle=orthogonalEdgeStyle;" target="p2_fc_cls">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_fc_out" edge="1" parent="1" source="p2_fc_cls" style="edgeStyle=orthogonalEdgeStyle;" target="p2_output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram id="Iu372MJXseVnEshazjI8" name="Page-1">
-    <mxGraphModel dx="2175" dy="1143" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2571" dy="1351" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -11,49 +11,49 @@
           <mxGeometry height="25" width="700" x="250" y="55" as="geometry" />
         </mxCell>
         <mxCell id="p0_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;1 × 128 × 128" vertex="1">
-          <mxGeometry height="60" width="130" x="80" y="120" as="geometry" />
+          <mxGeometry height="60" width="130" x="10" y="120" as="geometry" />
         </mxCell>
         <mxCell id="p0_conv1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Conv2d-1&lt;/b&gt;&lt;br&gt;in=1, out=2, kernel=5&lt;br&gt;Params: 52" vertex="1">
-          <mxGeometry height="70" width="160" x="280" y="100" as="geometry" />
+          <mxGeometry height="70" width="160" x="170" y="115" as="geometry" />
         </mxCell>
         <mxCell id="p0_pool1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;MaxPool2d&lt;/b&gt;&lt;br&gt;kernel=2, stride=2&lt;br&gt;Output: 2 × 62 × 62" vertex="1">
-          <mxGeometry height="70" width="160" x="280" y="190" as="geometry" />
+          <mxGeometry height="70" width="160" x="170" y="215" as="geometry" />
         </mxCell>
         <mxCell id="p0_relu1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
-          <mxGeometry height="35" width="60" x="330" y="280" as="geometry" />
+          <mxGeometry height="35" width="60" x="350" y="232.5" as="geometry" />
         </mxCell>
         <mxCell id="p0_conv2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" value="&lt;b&gt;Conv2d-2&lt;/b&gt;&lt;br&gt;in=2, out=4, kernel=5&lt;br&gt;Params: 204" vertex="1">
-          <mxGeometry height="70" width="160" x="520" y="100" as="geometry" />
+          <mxGeometry height="70" width="160" x="360" y="115" as="geometry" />
         </mxCell>
         <mxCell id="p0_pool2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;" value="&lt;b&gt;MaxPool2d&lt;/b&gt;&lt;br&gt;kernel=2, stride=2&lt;br&gt;Output: 4 × 29 × 29" vertex="1">
-          <mxGeometry height="70" width="160" x="520" y="190" as="geometry" />
+          <mxGeometry height="70" width="160" x="430" y="210" as="geometry" />
         </mxCell>
         <mxCell id="p0_relu2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
-          <mxGeometry height="35" width="60" x="570" y="280" as="geometry" />
+          <mxGeometry height="35" width="60" x="620" y="227.5" as="geometry" />
         </mxCell>
         <mxCell id="p0_dropout" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="&lt;b&gt;Dropout2D&lt;/b&gt;&lt;br&gt;p = 0.25" vertex="1">
-          <mxGeometry height="60" width="130" x="760" y="190" as="geometry" />
+          <mxGeometry height="65" width="130" x="580" y="117.5" as="geometry" />
         </mxCell>
         <mxCell id="p0_flatten" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=11;" value="&lt;b&gt;Flatten&lt;/b&gt;&lt;br&gt;4 × 29 × 29 = 3,364" vertex="1">
-          <mxGeometry height="55" width="130" x="760" y="310" as="geometry" />
+          <mxGeometry height="55" width="130" x="720" y="190" as="geometry" />
         </mxCell>
         <mxCell id="p0_fc1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Linear FC1&lt;/b&gt;&lt;br&gt;3,364 → 64&lt;br&gt;Params: 215,360" vertex="1">
-          <mxGeometry height="70" width="160" x="960" y="120" as="geometry" />
+          <mxGeometry height="70" width="160" x="880" y="115" as="geometry" />
         </mxCell>
         <mxCell id="p0_relu_fc1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
-          <mxGeometry height="35" width="60" x="1000" y="210" as="geometry" />
+          <mxGeometry height="35" width="60" x="930" y="227.5" as="geometry" />
         </mxCell>
         <mxCell id="p0_fc2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Linear FC2&lt;/b&gt;&lt;br&gt;64 → 16&lt;br&gt;Params: 1,040" vertex="1">
-          <mxGeometry height="70" width="160" x="960" y="270" as="geometry" />
+          <mxGeometry height="70" width="160" x="880" y="300" as="geometry" />
         </mxCell>
         <mxCell id="p0_relu_fc2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="ReLU" vertex="1">
-          <mxGeometry height="35" width="60" x="1000" y="360" as="geometry" />
+          <mxGeometry height="35" width="60" x="790" y="317.5" as="geometry" />
         </mxCell>
         <mxCell id="p0_fc3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="&lt;b&gt;Linear FC3&lt;/b&gt;&lt;br&gt;16 → 2&lt;br&gt;Params: 34" vertex="1">
-          <mxGeometry height="70" width="160" x="960" y="420" as="geometry" />
+          <mxGeometry height="70" width="160" x="600" y="300" as="geometry" />
         </mxCell>
         <mxCell id="p0_output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" value="&lt;b&gt;Log-Softmax&lt;/b&gt;&lt;br&gt;Output: 2 classes&lt;br&gt;(Class 0 vs Class 1)" vertex="1">
-          <mxGeometry height="70" width="160" x="960" y="530" as="geometry" />
+          <mxGeometry height="70" width="160" x="410" y="300" as="geometry" />
         </mxCell>
         <mxCell id="e0_1" edge="1" parent="1" source="p0_input" style="edgeStyle=orthogonalEdgeStyle;" target="p0_conv1">
           <mxGeometry relative="1" as="geometry" />
@@ -64,22 +64,35 @@
         <mxCell id="e0_3" edge="1" parent="1" source="p0_pool1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_relu1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e0_4" edge="1" parent="1" source="p0_relu1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_conv2">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="e0_4" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;entryX=0.138;entryY=0.971;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="382" y="233" as="sourcePoint" />
+            <mxPoint x="382.0799999999999" y="185.97000000000003" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="e0_5" edge="1" parent="1" source="p0_conv2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_pool2">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="200" />
+              <mxPoint x="480" y="200" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e0_6" edge="1" parent="1" source="p0_pool2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_relu2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e0_7" edge="1" parent="1" source="p0_relu2" style="edgeStyle=orthogonalEdgeStyle;" target="p0_dropout">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="645" y="210" />
+              <mxPoint x="645" y="210" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="e0_8" edge="1" parent="1" source="p0_dropout" style="edgeStyle=orthogonalEdgeStyle;" target="p0_flatten">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="e0_9" edge="1" parent="1" source="p0_flatten" style="edgeStyle=orthogonalEdgeStyle;" target="p0_fc1">
+        <mxCell id="e0_9" edge="1" parent="1" source="p0_flatten" style="edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="p0_fc1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="e0_10" edge="1" parent="1" source="p0_fc1" style="edgeStyle=orthogonalEdgeStyle;" target="p0_relu_fc1">

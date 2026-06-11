@@ -1,0 +1,133 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="Iu372MJXseVnEshazjI8" name="Page-1">
+    <mxGraphModel dx="1403" dy="-887" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2_title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;fontFamily=Times New Roman;" value="Net2 — QML Hybrid: PennyLane + PyTorch (QCCNN, 4 Qubits)" vertex="1">
+          <mxGeometry height="40" width="700" x="220" y="1660" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_params" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=2;fontFamily=Times New Roman;" value="Total params: 30,010 (Classical: 29,998 | Quantum: 12) | Framework: PennyLane + PyTorch | Device: lightning.qubit | Input: 3×128×128" vertex="1">
+          <mxGeometry height="25" width="1090" x="50" y="1695" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_input" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Input Image&lt;/b&gt;&lt;br&gt;3 × 128 × 128 (RGB)" vertex="1">
+          <mxGeometry height="83" width="150" x="10" y="1811.5" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_cfe_container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;dashed=1;fontSize=18;fontStyle=1;verticalAlign=top;fontFamily=Times New Roman;" value="&lt;font style=&quot;font-size: 24px;&quot;&gt;Classical Feature Extractor (CFE)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="190" width="980" x="180" y="1740" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Block1&lt;/b&gt;&lt;br&gt;Conv2d 3→8, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2)&lt;br&gt;→ 8×64×64" vertex="1">
+          <mxGeometry height="130" width="210" x="205" y="1788" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Block2&lt;/b&gt;&lt;br&gt;Conv2d 8→16, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2) → x2&lt;br&gt;→ 16×32×32" vertex="1">
+          <mxGeometry height="130" width="200" x="485" y="1788" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Block3&lt;/b&gt;&lt;br&gt;Conv2d 16→32, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;MaxPool2d(2)&lt;br&gt;→ 32×16×16" vertex="1">
+          <mxGeometry height="130" width="190" x="730" y="1788" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_block4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Block4&lt;/b&gt;&lt;br&gt;Conv2d 32→64, k=3&lt;br&gt;BatchNorm2d + ReLU&lt;br&gt;(no pool) → x4&lt;br&gt;→ 64×16×16" vertex="1">
+          <mxGeometry height="130" width="187" x="960" y="1788" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_b12" edge="1" parent="1" source="p2_block1" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_block2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_b23" edge="1" parent="1" source="p2_block2" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_block3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_b34" edge="1" parent="1" source="p2_block3" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_block4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_branch_label" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=2;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;font style=&quot;font-size: 22px;&quot;&gt;&lt;b&gt;Two output branches from CFE&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="25" width="300" x="737" y="1937" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_reduce" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;ReduceToQubits&lt;/b&gt;&lt;br&gt;Conv 16→8 (1×1) + ReLU&lt;br&gt;Conv 8→4 (1×1)&lt;br&gt;+ Interpolate to Q_RES" vertex="1">
+          <mxGeometry height="107" width="230" x="620" y="1974.5" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_gap" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Global Avg Pool&lt;/b&gt;&lt;br&gt;torch.mean(x4, dim=(2,3))&lt;br&gt;→ 64-dim vector" vertex="1">
+          <mxGeometry height="100" width="204" x="951.5" y="1976" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_qc_container" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f9f0ff;strokeColor=#9673a6;strokeWidth=3;dashed=1;fontSize=18;fontStyle=1;verticalAlign=top;fontFamily=Times New Roman;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;QuantumConv — PennyLane (lightning.qubit, 4 qubits)&lt;/font&gt;" vertex="1">
+          <mxGeometry height="513" width="550" x="13" y="1950" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_tanh" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="tanh activation on patch" vertex="1">
+          <mxGeometry height="50" width="270" x="43" y="2003" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ry_in" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;RY(input)&lt;/b&gt;&lt;br&gt;Encodes patch pixel → qubit rotation&lt;br&gt;4 qubits" vertex="1">
+          <mxGeometry height="100" width="220" x="43" y="2086" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_ry_w" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;RY(weight)&lt;/b&gt;&lt;br&gt;Trainable rotation per qubit&lt;br&gt;4 qubits × N_Q_LAYERS = 12 params" vertex="1">
+          <mxGeometry height="107" width="200" x="323" y="2082.5" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_cnot" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;CNOT ring entanglement&lt;/b&gt;&lt;br&gt;q0→q1→q2→q3→q0" vertex="1">
+          <mxGeometry height="90" width="220" x="313" y="2223" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_measure" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Measure&lt;/b&gt;&lt;br&gt;⟨PauliZ⟩ × 4 + ⟨PauliX⟩ × 4 + ⟨PauliY⟩ × 4&lt;br&gt;= 12 expectation values per patch" vertex="1">
+          <mxGeometry height="119" width="240" x="43" y="2208.5" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_qmeanpool" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Mean Pool&lt;/b&gt;&lt;br&gt;Spatial mean over patches&lt;br&gt;→ 12-dim vector" vertex="1">
+          <mxGeometry height="65" width="330" x="118" y="2373" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_concat" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;font&gt;&lt;b&gt;Concatenate&lt;/b&gt;&lt;br&gt;[64-dim || 12-dim]&lt;br&gt;→ 76-dim vector&lt;/font&gt;" vertex="1">
+          <mxGeometry height="90" width="204" x="952" y="2110" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_fc_cls" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;FC Classifier&lt;/b&gt;&lt;br&gt;Linear 76 → 64&lt;br&gt;ReLU + Dropout(0.3)&lt;br&gt;Linear 64 → 2 (NUM_CLASSES)" vertex="1">
+          <mxGeometry height="120" width="210" x="949" y="2233" as="geometry" />
+        </mxCell>
+        <mxCell id="p2_output" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=18;fontFamily=Times New Roman;strokeWidth=3;" value="&lt;b&gt;Output Logits&lt;/b&gt;&lt;br&gt;2-class (binary)&lt;br&gt;Class 0 vs Class 1" vertex="1">
+          <mxGeometry height="81" width="204" x="952" y="2385" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_in_cfe" edge="1" parent="1" source="p2_input" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_block1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_x4_gap" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_gap">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1054" y="1930" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2_reduce_qc" edge="1" parent="1" source="p2_reduce" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="p2_tanh">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="593" y="1900" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2_tanh_ry" edge="1" parent="1" source="p2_tanh" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;exitX=0.407;exitY=0.992;exitDx=0;exitDy=0;exitPerimeter=0;" target="p2_ry_in">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_ry_ryw" edge="1" parent="1" source="p2_ry_in" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_ry_w">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_ryw_cnot" edge="1" parent="1" source="p2_ry_w" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_cnot">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_cnot_meas" edge="1" parent="1" source="p2_cnot" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_measure">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_meas_pool" edge="1" parent="1" source="p2_measure" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_qmeanpool">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_pool_cat" edge="1" parent="1" source="p2_qmeanpool" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="p2_concat">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="660" y="2406" />
+              <mxPoint x="660" y="2173" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2_gap_cat" edge="1" parent="1" source="p2_gap" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_concat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_cat_fc" edge="1" parent="1" source="p2_concat" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_fc_cls">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_fc_out" edge="1" parent="1" source="p2_fc_cls" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;" target="p2_output">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3dhZOx_FAQ2V6EWdT8yQ-6" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;fontFamily=Times New Roman;fontSize=18;strokeWidth=3;entryX=0.413;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;" target="p2_reduce">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="715" y="1930" as="sourcePoint" />
+            <mxPoint x="715" y="1962" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
